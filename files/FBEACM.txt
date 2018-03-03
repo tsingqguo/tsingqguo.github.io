@@ -1,0 +1,6 @@
+@inproceedings{Guo2017,
+  author={Q. Guo and S. Sun and F. Dong and W. Feng and S. Ma and B. Z. Gao},
+  title={Frequency-tuned Active Contour Model for Biomedical Image Segmentation},
+  booktitle = {International Conference on Acoustics, Speech and Signal Processing},
+  year = {2017}
+}

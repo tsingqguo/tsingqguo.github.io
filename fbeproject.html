@@ -1,0 +1,168 @@
+<html>
+<head>
+
+<title>Frequency-tuned Active Contour Model for Biomedical Image Segmentation</title>
+<meta name="author" content="Qing Guo" >
+<meta name="keywords" content="Image segmentation, active contour model, frequency boundary energy">
+<meta name="description" content="Image Segmentation">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
+<meta http-equiv="content-style-type" content="text/css">
+<meta http-equiv="expires" content="0">
+
+<style type="text/css">
+
+	a:link       { color: #0000C0; text-decoration=none }
+	a:visited    { color: #0000C0; text-decoration=none }
+	a:active     { color: #0000FF; text-decoration=none }
+	a:hover      { color: #0080FF; text-decoration=none }
+
+	body {
+				font-family: arial, helvetica, sans-serif; font-size: 11pt;
+				margin: 80px;
+				margin-top:    70px;
+				margin-bottom: 70px;
+	}
+
+	h1 { font-size: 200%; margin-top 20px;margin-bottom: 20px; }
+	h2 { font-size: 150%;margin-top: 60px;margin-bottom: 10px;}
+	h3 { font-size: 100%; margin-top: 20px; margin-bottom: 10px;}
+	p  { margin-top: 0em; margin-bottom: 5px  }
+
+</style>
+</head>
+
+<body>
+<div align="left" >
+  <h2 align="center"><strong>Frequency-tuned Active Contour Model for Biomedical Image Segmentation</strong></h2>
+	<p align="center">
+		<sup>1,2</sup><a href="http://tsingqguo.gq"/>Qing Guo</a>*&nbsp;&nbsp;
+		<sup>2</sup><a href="watersun1977@hotmail.com"/>Shuifa Sun</a>*&nbsp;&nbsp;
+		<sup>2</sup><a href="fmdong@ctgu.edu.cn">Fangmin Dong</a>&nbsp;&nbsp;
+		<sup>1</sup><a href="wfeng@tju.edu.cn">Wei Feng</a>&nbsp;&nbsp;
+		<sup>3</sup><a href="bzgao@clemson.edu">Bruce Zhi Gao</a>&nbsp;&nbsp;
+		<sup>3</sup><a href="syma@clemson.edu">Siyu Ma</a>&nbsp;&nbsp;
+	</p>
+	<p align="center"><sup>1</sup>Tianjin University&nbsp;&nbsp;&nbsp;&nbsp;<sup>2</sup>China Three Gorges University&nbsp;&nbsp;&nbsp;&nbsp;<sup>3</sup>Clemson University&nbsp;&nbsp;&nbsp;&nbsp;</p>
+	</br></br>
+	<p align="center"><img src="./imgs/fbe1.png" alt="" width="600"/></p></br>
+	<p align="center">
+Figure 1: An example of minimizing FBE. As FBE reducing, the energy of C in subregions gradually vanishes. Finally, Ct is restricted
+to C with segmentation result obtained.
+	</p>
+  <h2>Abstract</h2>
+	<p align="justify">
+Biomedical images are usually corrupted by strong noise and
+intensity inhomogeneity simultaneously. Existing regionbased active contour models (RACMs) easily fail when segmenting such images. In the frequency domain, we propose a
+generalized RACM that presents a new way to understand the
+essence of classical RACMs whose segmentation results are
+determined by a frequency filter to extract the proposed frequency boundary energy. Then, we introduce the difference
+of Gaussians as the optimal filter to exclude strong noise and
+intensity inhomogeneity effectively. We show superior performance of the model by comparing with six state-of-the-art
+methods on challenge biomedical images and segmenting an
+optical coherence tomography image sequence.
+</p>
+</br>
+	</br>
+		<p align="center"><img src="./imgs/fbe2.jpg" alt="" width="600"/></p></br>
+	</br>
+	<p align="center">
+	Figure 2:Segmenting optical coherence tomography (OCT) image with CV, LBF, legendre level set (L2S) and our
+method. The dashed line in (a) is the initial contour for all methods.
+</p> 
+
+	</br>
+
+<h2>Introduction</h2>
+<p align="justify">
+In this paper, we propose a generalized RACM by defining frequency boundary energy (FBE) in the frequency domain. Image segmentation is defined as finding a contour that
+minimizes the FBE outside and inside the contour. Thus, the
+segmentation result is decided by a frequency filter that produces FBE. Then, we introduce two frequency filters being
+demonstrated to be classical RACMs, which indicates that FBE is a generalized RACM. Finally, we propose to use difference of Gaussians as a better filter to exclude strong noise and
+intensity inhomogeneity effectively. Extensive experiments
+demonstrate the proposed model achieves better results than
+six state-of-the-art methods.
+</p>
+<h2>Selective Segmentation</h2>
+</br>
+	</br>
+	<div align="center">
+	<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/G8RbuKI_784?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>-->
+	<video style="width:640;height:auto" muted loop controls>
+		<source src="imgs/fbeavi1.mov" type="video/mp4">
+	</video>
+	</div>
+	</br>
+	<p align="center">
+	By setting different bandwidth and position for DoG filter, we show that DoG based FBE model is able to realize selective segmentation, that is, to segment different part in the same image.
+</p>
+</br>
+
+</p>
+<h2>Controllable Smoothness </h2>
+</br>
+	</br>
+	<div align="center">
+	<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/G8RbuKI_784?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>-->
+	<video style="width:640;height:auto" muted loop controls>
+		<source src="imgs/fbeavi2.mov" type="video/mp4">
+	</video>
+	</div>
+	</br>
+	<p align="center">
+	We also show that our method is able to control the smoothness of contour by setting the degree to suppress high frequency information. 
+</p>
+</br>
+
+</p>
+<h2>Segmenting texture images without texture features</h2>
+</br>
+	</br>
+	<div align="center">
+	<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/G8RbuKI_784?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>-->
+	<video style="width:640;height:auto" muted loop controls>
+		<source src="imgs/fbeavi3.mov" type="video/mp4">
+	</video>
+	</div>
+	</br>
+	<p align="center">
+	We also perform an interesting experiment. With DoG filter, we can segment texture images without extracting texture feature and realize good result on some natural images. 
+</p>
+</br>
+
+<h2>Source Code</h2>
+
+Source Code (Matlab) and Models:
+[ <a href="./files/Demo_FBEACM.zip">Demo</a> ]
+
+
+<h2>Citation - BibTeX</h2>
+<p align="justify">
+	<b>Frequency-tuned Active Contour Model for Biomedical Image Segmentation</b><br/>
+	Qing Guo, Shuifa Sun, Fangmin Dong, Wei Feng, Siy Ma, Bruce Z. Gao. Freqeuncy-tuned Active Contour Model for Biomedical image segmentation.<br/>
+	<i> In ICASSP 2017.(CCF-B, Oral)</i>.<br/>
+	[ <a href="./files/FBEACM2ICASSP.pdf">PDF</a> ]
+	[ <a href="./files/FBEACM_presentation.pptx">PPT</a> ]
+	[ <a href="./files/FBEACM.txt">BibTeX</a> ]
+</p>
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=8914677;
+var sc_invisible=1;
+var sc_security="f1edf88a";
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="web analytics"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="http://c.statcounter.com/8914677/0/f1edf88a/1/"
+alt="web analytics"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+</body>
+</html>
+

@@ -1,0 +1,6 @@
+@inproceedings{Guo2017,
+  author={C. Zhou and Q. Guo and L. Wang and W. Feng},
+  title={Selective Object and Context Tracking},
+  booktitle = {International Conference on Acoustics, Speech and Signal Processing},
+  year = {2017}
+}
