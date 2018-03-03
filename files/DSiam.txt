@@ -1,0 +1,7 @@
+@inproceedings{Guo2017,
+  author={Qing Guo, Wei Feng, Ce Zhou, Rui Huang, Liang Wan, Song Wang},
+  title={ Learning Dynamic Siamese Network for Visual Object Tracking},
+  booktitle = {IEEE International Conference on Computer Vision},
+  year = {2017},
+  page = {1763--1771}
+}
