@@ -1,0 +1,7 @@
+@inproceedings{Chen2018,
+  author={Zhihao Chen, Qing Guo, Liang Wan, Wei Feng},
+  title={Background-Suppressed Correlation Filters for Visual Tracking},
+  booktitle = {IEEE International Conference on Multimedia & Expo},
+  year = {2018},
+  page = {1--1}
+}
