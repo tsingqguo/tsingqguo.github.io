@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Background-Suppressed Correlation Filters for Visual Tracking</title>
+<meta name="author" content="Zhihao Chen" >
+<meta name="keywords" content="Image segmentation, active contour model, frequency boundary energy">
+<meta name="description" content="Image Segmentation">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
+<meta http-equiv="content-style-type" content="text/css">
+<meta http-equiv="expires" content="0">
+<script type="text/javascript" src="http://common.cnblogs.com/script/ASCIIMathML.js"></script>
+<style type="text/css">
+
+	a:link       { color: #0000C0; text-decoration=none }
+	a:visited    { color: #0000C0; text-decoration=none }
+	a:active     { color: #0000FF; text-decoration=none }
+	a:hover      { color: #0080FF; text-decoration=none }
+
+	body {
+				font-family: arial, helvetica, sans-serif; font-size: 11pt;
+				margin: 80px;
+				margin-top:    70px;
+				margin-bottom: 70px;
+	}
+
+	h1 { font-size: 200%; margin-top 20px;margin-bottom: 20px; }
+	h2 { font-size: 150%;margin-top: 60px;margin-bottom: 10px;}
+	h3 { font-size: 100%; margin-top: 20px; margin-bottom: 10px;}
+	p  { margin-top: 0em; margin-bottom: 5px  }
+
+</style>
+</head>
+
+<body>
+<div align="left" >
+  <h2 align="center"><strong>Background-Suppressed Correlation Filters for Visual Tracking</strong></h2>
+	<p align="center">
+		<sup>1</sup><a href="zh_chen@tju.edu.cn">Zhihao Chen</a>&nbsp;&nbsp;
+		<sup>2</sup><a href="tsinqguo@tju.edu.cn"/>Qing Guo</a>&nbsp;&nbsp;
+		<sup>1</sup><a href="lwan@tju.edu.cn">Liang Wan</a>*&nbsp;&nbsp;
+		<sup>2</sup><a href="wfeng@tju.edu.cn"/>Wei Feng</a>&nbsp;&nbsp;	
+	</p>
+	<p align="center"><sup>1</sup>School of Computer Software, Tianjin University&nbsp;&nbsp;&nbsp;&nbsp;<sup>2</sup>School of Computer Science and Technology, Tianjin University&nbsp;&nbsp;&nbsp;&nbsp;</p>
+	</br></br>
+	<p align="center"><img src="./imgs/fig1.png" alt="" width="600"/></p></br>
+	<p align="center">
+	Comparing a CF tracker, i.e. STAPLE, with its BSCF tracker, i.e. STAPLE_BS which is equipped with our background suppression filtering. At the frame t, there are two similar objects in the search region. The one with red bounding box is the interested target. Another is the clutter. Staple denoted as the dashed line generates a less discriminative response map having double high peaks and gets the highest value on the clutter. However, with the background suppression filtering, STAPLE_BS gets much more discriminative response map only having one high peak on target position.
+	</p>
+  <h2>Abstract</h2>
+	<p align="justify">
+Correlation filters~(CF) visual object tracking is a powerful framework, with excellent tracking accuracy and beyond real-time frame rate. Its performance, however, can be severely degraded in cluttered background images. In this paper, we propose background-suppressed correlation filters~(BSCF), a better CF tracking scheme, which can significantly improve the reliability and accuracy of CF trackers, without harming their beyond real-time speed. Specifically, we present a unified BSCF object function. We show that both the correlation filters and BS weight map can be efficiently and jointly solved in frequency domain. Extensive experiments on OTB-100 benchmark validate the effectiveness and generality of BS in improving multiple CF trackers with higher accuracy and robustness while maintaining their fast tracking speed. We also show BS boosted CF tracker can achieve comparable accuracy of the state-of-the-art spatially-regularized CF tracker but is 14 times faster.
+<h2>Introduction</h2>
+<p align="justify">
+In this paper, we address the background clutter difficulty of CF tracking scheme  and propose background-suppressed correlation filters BSCF, which is able to not only significantly improve the accuracy and robustness of CF trackers, but barely harms their beyond real-time speed. For example, as shown in the first row of Fig.1, original Staple  tracker runs at 50.2fps with Succ. AUC 0.5790 and Prec. 78.4%; while the BS-boosted Staple tracker, i.e. STAPLE_BS, can run at 42.7fps with much higher accuracy (Succ. AUC 0.5960 and Prec. 80.1%). The accuracy of STAPLE_BS is comparable to that of SRDCF, whose frame rate is only 2.96fps, i.e. being 14 times slower than STAPLE_BS. Our major contribution is three-fold. First, we propose background suppression filtering for CF tracking scheme, which is performed in the feature space before the complicated correlation filters optimization and can effectively exclude the cluttered background. As shown in Fig.2, BSCF tracker gets a much more discriminative response map, thus can locate the target accurately. Second, we propose a novel BSCF objective function, with which BS and correlation filters can be efficiently and jointly solved in frequency domain. Third, we show the effectiveness and generality of our BS strategy on two state-of-the-art CF trackers.
+</p>
+<h2>Results on OTB-100</h2>
+</br>
+	</br>
+	<p align="center"><img src="./imgs/fig_state.png" alt="" width="600"/></p></br>
+	<p align="center">
+	Success and precision plots of OPE on OTB-100. These two figures show the average performance of state-of-art trackers and our BS trackers. It is obvious that our BS tracker $\rm {STAPLE}_{BS}$ obtains the second highest overlap AUC 0.596 and keep the fast real-time speed at the same time.
+</p>
+</br>
+
+</p>
+<h2>Demo</h2>
+</br>
+	</br>
+	<div align="center">
+	<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/G8RbuKI_784?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>-->
+	<video style="width:640;height:auto" muted loop controls>
+		<source src="./imgs/Demos_For_BSCF_v3.mp4" type="video/mp4">
+	</video>
+	</div>
+	</br>
+	<p align="center">
+	Challenge video in which target is surrounded by clustered background and similar objects.
+</p>
+</br>
+
+<h2>Source Code</h2>
+
+Source Code (Matlab) and Models:
+[ <a href="https://github.com/eraserNut/BSCF/tree/master/page/code"/>Code</a>][<a href="https://github.com/eraserNut/BSCF/tree/master/page"/>OTB-100 results</a>]
+
+
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=8914677;
+var sc_invisible=1;
+var sc_security="f1edf88a";
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="web analytics"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="http://c.statcounter.com/8914677/0/f1edf88a/1/"
+alt="web analytics"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+</body>
+</html>
+
