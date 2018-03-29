@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Content-Related Spatial Regularization for Visual Object Tracking</title>
+<meta name="author" content="Qing Guo" >
+<meta name="keywords" content="Image segmentation, active contour model, frequency boundary energy">
+<meta name="description" content="Image Segmentation">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
+<meta http-equiv="content-style-type" content="text/css">
+<meta http-equiv="expires" content="0">
+<script type="text/javascript" src="http://common.cnblogs.com/script/ASCIIMathML.js"></script>
+<style type="text/css">
+
+	a:link       { color: #0000C0; text-decoration=none }
+	a:visited    { color: #0000C0; text-decoration=none }
+	a:active     { color: #0000FF; text-decoration=none }
+	a:hover      { color: #0080FF; text-decoration=none }
+
+	body {
+				font-family: arial, helvetica, sans-serif; font-size: 11pt;
+				margin: 80px;
+				margin-top:    70px;
+				margin-bottom: 70px;
+	}
+
+	h1 { font-size: 200%; margin-top 20px;margin-bottom: 20px; }
+	h2 { font-size: 150%;margin-top: 60px;margin-bottom: 10px;}
+	h3 { font-size: 100%; margin-top: 20px; margin-bottom: 10px;}
+	p  { margin-top: 0em; margin-bottom: 5px  }
+
+</style>
+</head>
+
+<body>
+<div align="left" >
+  <h2 align="center"><strong>Content-Related Spatial Regularization for Visual Object Tracking</strong></h2>
+	<p align="center">
+		<a href="han_ruize@tju.edu.cn">Rui-Ze Han</a>&nbsp;&nbsp;
+		<a href="tsinqguo@tju.edu.cn"/>Qing Guo</a>&nbsp;&nbsp;
+		<a href="wfeng@tju.edu.cn"/>Wei Feng</a>*&nbsp;&nbsp;	
+	</p>
+	<p align="center">School of Computer Science and Technology, Tianjin University&nbsp;&nbsp;&nbsp;&nbsp</p>
+	</br></br>
+	<p align="center"><img src="./imgs/crsr_fig2.png" alt="" width="1000"/></p></br>
+	<p align="center">
+	 Figure.1 Pipeline of CRSR based CF tracking. Static CRSR introduces the object saliency map of the first frame into the spatially
+     variant weight map to highlight the target region. On this basis, temporal CRSR updates the weight map temporally through
+     the saliency map and online learned filters to make the filters adapt the object variation better in filters learning.
+	</p>
+  <h2>Abstract</h2>
+	<p align="justify">
+Spatial regularization (SR), being an effective tool to alleviate the boundary effects, can significantly improve the accuracy and robustness of correlation filters (CF) based visual object
+tracking. The core of SR is a spatially variant weight map that is used to regularize the online learned correlation filters by selecting more meaningful samples. However, most existing trackers apply a data-independent SR weight map. In
+this paper, we show that a content-related spatial regularization (CRSR) can help to further boost both the tracking accuracy and robustness. Specifically, we present to consider
+both frame saliency and spatial preference to online generate the CRSR weight map and propose a simple yet effective saliency-embedded CF objective function to simultaneously optimize the filters and CRSR weight map in spatialtemporal domain. Extensive experiments validate that our
+content-related SR outperforms the classical SR, with higher tracking accuracy and almost two times faster speed.
+<h2>Introduction</h2>
+<p align="justify">
+Recently, correlation filters (CF) tracking, being one of the best tracking frameworks, has shown continuous performance improvement in terms of accuracy and robustness
+on various benchmarks. However, there is an inherent drawback of CF, i.e. boundary effects introduced by circular shifting a region centered at the target to generate training samples, thus learn less discriminative filters. 
+SRDCF is designed to address this problem by using a spatially variant variant weight map to regularize correlation filters and has
+achieved the best performance on popular benchmarks, e.g. OTB and VOT. However, the weight map for spatial regularization (SR) is generated according to the bounding
+box of the target, given at the first frame and fixed during the whole tracking process, which loses sight of the object content information. Such designing is clearly not suitable for
+object tracking that usually address irregular, nonrigid and temporally changing objects. To alleviate such problem, we propose content-related spatial regularization for correlation filters (CRSRCF), which
+introduces the saliency information and online learned filters into the SR weight map with the consideration of target content information, i.e. the shape and variation. As a result, CRSRCF can track the irregular, nonrigid
+and temporally changing targets accurately. Specifically, we first propose static content-related SR by introducing target saliency map into the SR weight map to highlight the target
+while suppressing the surrounding at the first frame. We then propose a simple yet effective saliency-embedded CF objective function to simultaneously optimize filters and SR weight
+map. Experiments results show that our approach helps SRDCF track irregular, nonrigid and variational target accurately and gets much better performance than several state-of-the-art
+trackers on OTB 2015.
+</p>
+<h2>Results on OTB-2015</h2>
+</br>
+	</br>
+	<p align="center"><img src="./imgs/crsr_otb2015.png" alt="" width="900"/></p></br>
+	<p align="center">
+	Precision plots (left) and success plots (right) showing a comparison with state-of-the-art methods on OTB-2015.
+    The legend contains the average distance precision score at 20 pixels and the AUC score for each tracker.
+</p>
+</br>
+
+</p>
+<h2>Demo</h2>
+</br>
+	</br>
+	<div align="center">
+	<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/G8RbuKI_784?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>-->
+	<video style="width:256;height:auto" muted loop controls>
+		<source src="files/demo.mp4" type="video/mp4">
+	</video>
+	</div>
+	</br>
+	<p align="center">
+	This video shows the temporally updating process of the spatial weight map via the saliency information and online learned filters in CRSRCF as well as more qualitative results of our CRSRCF and other four CF-based trackers KCF, Staple, CSR-DCF and SRDCF on several scenarios of OTB-2015.
+
+
+</p>
+</br>
+
+<h2>Source Code</h2>
+
+Source Code (Matlab):
+[<a />Code Coming Soon</a>]
+
+
+<h2>Citation - BibTeX</h2>
+<p align="justify">
+	<b>Content-Related Spatial Regularization for Visual Object Tracking</b><br/>
+	Rui-Ze Han, Qing Guo, Wei Feng. Content-Related Spatial Regularization for Visual Object Tracking.<br/>
+	<i> In ICME 2018.(CCF-B)</i>.<br/>
+	[ <a href="./files/CRSRCF_ICME2018.pdf">PDF</a> ]
+	[ <a href="./files/CRSRCF.txt">BibTeX</a> ]
+</p>
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=8914677;
+var sc_invisible=1;
+var sc_security="f1edf88a";
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="web analytics"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="http://c.statcounter.com/8914677/0/f1edf88a/1/"
+alt="web analytics"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+</body>
+</html>
+
