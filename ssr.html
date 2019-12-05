@@ -31,17 +31,17 @@
 <div align="left" >
   <h2 align="center"><strong>Selective Spatial Regularization by Reinforcement Learned Decision Making for Object Tracking</strong></h2>
 	<p align="center">
-		<sup>1</sup><a href="tsinqguo@tju.edu.cn"/>Qing Guo</a>&nbsp;&nbsp;
+		<a href="tsinqguo@tju.edu.cn"/>Qing Guo</a>&nbsp;&nbsp;
     <sup>1</sup><a href="ruize_han@tju.edu.cn">Ruize Han</a>&nbsp;&nbsp;
-		<sup>1</sup><a href="wfeng@tju.edu.cn"/>Wei Feng</a>*&nbsp;&nbsp;
-		<sup>1</sup><a href="zhihaochen@tju.edu.cn">Zhihao Chen</a>&nbsp;&nbsp;
-		<sup>1</sup><a href="lwan@tju.edu.cn">Liang Wan</a>&nbsp;&nbsp;
+		<a href="wfeng@tju.edu.cn"/>Wei Feng</a>*&nbsp;&nbsp;
+		<a href="zhihaochen@tju.edu.cn">Zhihao Chen</a>&nbsp;&nbsp;
+		<a href="lwan@tju.edu.cn">Liang Wan</a>&nbsp;&nbsp;
 	</p>
-	<p align="center"><sup>1</sup>School of Computer Science and Technology, Tianjin University&nbsp;&nbsp;&nbsp;&nbsp;<sup>2</sup>School of Computer Software, Tianjin University&nbsp;&nbsp;&nbsp;&nbsp;<sup>3</sup>University of South Carolina, Columbia, SC 29208, USA&nbsp;&nbsp;&nbsp;&nbsp;</p>
+	<p align="center"><sup>1</sup>College of Intelligence and Computing, Tianjin University</p>
 	</br></br>
-	<p align="center"><img src="./imgs/ssr/fig2.png" alt="" width="600"/></p></br>
+	<p align="center"><img src="./imgs/fig2.png" alt="" width="600"/></p></br>
 	<p align="center">
-	Figure 1. Basic pipelines of our DSiam network (orange line) and the SiamFC(black dashed line). $ \mathrm{f}^{l}(\cdot) $ represents a CNN to extract the deep feature at $l$th layer. We add the target appearance variation ($\mathbf{V}_{t-1}^{l}$) and background suppression ($\mathbf{W}_{t-1}^{l}$) transformations for two branches respectively. Two transformations are rapidly learned from frame $t-1$. When the target at frame $t$ (red box) is entirely different from $\mathbf{O}_1$, SiamFC gets a meaningless response map, within which no target can be found. In contrast, our method captures the target successfully.
+	Figure 1. Comparison between SRDCF and the proposed selective spatial regularization based discriminative CF (SSR-DCF) on the cases of occlusion and background clutter. The bounding box results, their response maps, and the information they relied on are shown. When the targets are fully occluded or surrounded by similar objects, e.g., frame #112 in ‘girl2’ and frame #168 in ‘soccer’, SRDCF uses filters that only rely on the target information for localization and produces a false high response at the background, which further leads to erroneous filter updating and encumbers the re-detection of the target at subsequence frames. In contrast, SSR-DCF utilizes the context information when above severe situations happen and gets more discriminative response maps than SRDCF, which further avoids erroneous filter updating and enables to re-detect targets when interferences disappear. Please find intuitive explanations in the text.
 	</p>
   <h2>Abstract</h2>
 	<p align="justify">
