@@ -39,7 +39,7 @@
 	</p>
 	<p align="center"><sup>1</sup>College of Intelligence and Computing, Tianjin University</p>
 	</br></br>
-	<p align="center"><img src="./imgs/fig1_ssr.png" alt="" width="600"/></p></br>
+	<p align="center"><img src="./imgs/fig1_ssr.png" alt="" width="800"/></p></br>
 	<p align="center">
 	Figure 1. Comparison between SRDCF and the proposed selective spatial regularization based discriminative CF (SSR-DCF) on the cases of occlusion and background clutter. The bounding box results, their response maps, and the information they relied on are shown. When the targets are fully occluded or surrounded by similar objects, e.g., frame #112 in ‘girl2’ and frame #168 in ‘soccer’, SRDCF uses filters that only rely on the target information for localization and produces a false high response at the background, which further leads to erroneous filter updating and encumbers the re-detection of the target at subsequence frames. In contrast, SSR-DCF utilizes the context information when above severe situations happen and gets more discriminative response maps than SRDCF, which further avoids erroneous filter updating and enables to re-detect targets when interferences disappear. Please find intuitive explanations in the text.
 	</p>
@@ -66,17 +66,17 @@ and LaSOT verify the superiority of our method over state-of-the-art competitors
 	</br>
 	<p align="center"><img src="./imgs/cmp_otb_ssr.png" alt="" width="600"/></p></br>
 	<p align="center">
-	Success and precision plots of OPE (one pass evaluation) on OTB-2013. The numbers in the legend indicate the areaunder-curve (AUC) score for success plots and the representative precisions at 20 pixels for precision plots, respectively.
+	Comparison results on OTB-2013 and OTB-2015. The legend of each tracker shows the AUC score of success plots and precision at 20 pixels of precision plots.
 </p>
 </br>
 
 </p>
-<h2>Results on OTB-2013</h2>
+<h2>Results on OTB-2013 and 2015</h2>
 </br>
 	</br>
 	<p align="center"><img src="./imgs/cmp_lasot_tc128_ssr.png" alt="" width="600"/></p></br>
 	<p align="center">
-	Success and precision plots of OPE (one pass evaluation) on OTB-2013. The numbers in the legend indicate the areaunder-curve (AUC) score for success plots and the representative precisions at 20 pixels for precision plots, respectively.
+	Comparison results on TC128 and LaSOT. The legend of each tracker shows the AUC score of success plots and precision at 20 pixels of precision plots.
 </p>
 </br>
 
