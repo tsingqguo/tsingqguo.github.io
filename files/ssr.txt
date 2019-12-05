@@ -1,0 +1,11 @@
+@ARTICLE{Guo2019TIP,
+author={Q. {Guo} and R. {Han} and W. {Feng} and Z. {Chen} and L. {Wan}},
+journal={IEEE Transactions on Image Processing},
+title={Selective Spatial Regularization by Reinforcement Learned Decision Making for Object Tracking},
+year={2019},
+volume={},
+number={},
+pages={1-1},
+keywords={Target tracking;Visualization;Correlation;Object tracking;Clutter;Complexity theory;Visual object tracking;correlation filter;selective spatial regularization;MDP;reinforcement learning},
+doi={10.1109/TIP.2019.2955292},
+}
