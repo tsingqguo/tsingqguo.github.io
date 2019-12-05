@@ -1,0 +1,122 @@
+<html>
+<head>
+<title>Selective Spatial Regularization by Reinforcement Learned Decision Making for Object Tracking</title>
+<meta name="author" content="Qing Guo" >
+<meta name="keywords" content="correlation filter, selective spatial regularization, MDP, reinforcement learning, visual object tracking">
+<meta name="description" content="Selective Spatial Regularization">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
+<meta http-equiv="content-style-type" content="text/css">
+<meta http-equiv="expires" content="0">
+<script type="text/javascript" src="http://common.cnblogs.com/script/ASCIIMathML.js"></script>
+<style type="text/css">
+	a:link       { color: #0000C0; text-decoration=none }
+	a:visited    { color: #0000C0; text-decoration=none }
+	a:active     { color: #0000FF; text-decoration=none }
+	a:hover      { color: #0080FF; text-decoration=none }
+	body {
+				font-family: arial, helvetica, sans-serif; font-size: 11pt;
+				margin: 80px;
+				margin-top:    70px;
+				margin-bottom: 70px;
+	}
+	h1 { font-size: 200%; margin-top 20px;margin-bottom: 20px; }
+	h2 { font-size: 150%;margin-top: 60px;margin-bottom: 10px;}
+	h3 { font-size: 100%; margin-top: 20px; margin-bottom: 10px;}
+	p  { margin-top: 0em; margin-bottom: 5px  }
+</style>
+</head>
+
+<body>
+<div align="left" >
+  <h2 align="center"><strong>Selective Spatial Regularization by Reinforcement Learned Decision Making for Object Tracking</strong></h2>
+	<p align="center">
+		<sup>1</sup><a href="tsinqguo@tju.edu.cn"/>Qing Guo</a>&nbsp;&nbsp;
+    <sup>1</sup><a href="ruize_han@tju.edu.cn">Ruize Han</a>&nbsp;&nbsp;
+		<sup>1</sup><a href="wfeng@tju.edu.cn"/>Wei Feng</a>*&nbsp;&nbsp;
+		<sup>1</sup><a href="zhihaochen@tju.edu.cn">Zhihao Chen</a>&nbsp;&nbsp;
+		<sup>1</sup><a href="lwan@tju.edu.cn">Liang Wan</a>&nbsp;&nbsp;
+	</p>
+	<p align="center"><sup>1</sup>School of Computer Science and Technology, Tianjin University&nbsp;&nbsp;&nbsp;&nbsp;<sup>2</sup>School of Computer Software, Tianjin University&nbsp;&nbsp;&nbsp;&nbsp;<sup>3</sup>University of South Carolina, Columbia, SC 29208, USA&nbsp;&nbsp;&nbsp;&nbsp;</p>
+	</br></br>
+	<p align="center"><img src="./imgs/ssr/fig2.png" alt="" width="600"/></p></br>
+	<p align="center">
+	Figure 1. Basic pipelines of our DSiam network (orange line) and the SiamFC(black dashed line). $ \mathrm{f}^{l}(\cdot) $ represents a CNN to extract the deep feature at $l$th layer. We add the target appearance variation ($\mathbf{V}_{t-1}^{l}$) and background suppression ($\mathbf{W}_{t-1}^{l}$) transformations for two branches respectively. Two transformations are rapidly learned from frame $t-1$. When the target at frame $t$ (red box) is entirely different from $\mathbf{O}_1$, SiamFC gets a meaningless response map, within which no target can be found. In contrast, our method captures the target successfully.
+	</p>
+  <h2>Abstract</h2>
+	<p align="justify">
+Spatial regularization (SR) is known as an effective tool to alleviate the boundary effect of correlation filter (CF), a successful visual object tracking scheme, from which a number of state-of-the-art visual object trackers can be stemmed. Nevertheless, SR highly increases the optimization complexity of CF and its target-driven nature makes spatially-regularized CF trackers may easily lose the occluded targets or the targets
+surrounded by other similar objects. In this paper, we propose selective spatial regularization (SSR) for CF-tracking scheme. It can achieve not only higher accuracy and robustness, but also higher speed compared with spatially-regularized CF trackers. Specifically, rather than simply relying on foreground information, we extend the objective function of CF tracking scheme to
+learn the target-context-regularized filters using target-contextdriven weight maps. We then formulate the online selection of these weight maps as a decision making problem by a Markov Decision Process (MDP), where the learning of weight map selection is equivalent to policy learning of the MDP that is solved by a reinforcement learning strategy. Moreover, by adding a special state, representing not-updating filters, in the MDP, we can learn when to skip unnecessary or erroneous filter updating, thus accelerating the online tracking. Finally, the proposed SSR is used to equip three popular spatially-regularized CF trackers to significantly boost their tracking accuracy, while achieving much faster online tracking speed. Besides, extensive experiments on five benchmarks validate the effectiveness of SSR.
+
+<h2>Introduction</h2>
+<p align="justify">
+In this paper, we propose selective spatial regularization (SSR) for the CF-tracking scheme, which can obtain higher tracking accuracy and robustness, and
+meanwhile is much faster during the online process. The major contributions of this work are:
+1) We propose an extended objective function for CF tracking scheme to generate target-context-regularized filters by selectively using target-context-driven weight maps tovregularize the learning of correlation filters.
+2) We formulate the online selection of different weight maps as a decision making problem via a Markov Decision Process (MDP), where the learning of weight map selection is solved by policy learning of the MDP through
+a reinforcement learning strategy. Moreover, by adding a special state, representing not-updating filters, in the MDP, we effectively learn when to skip unnecessary or
+erroneous filter updating, thus to accelerate the online tracking without harming the accuracy.
+3) We use the proposed SSR to improve three popular spatially-regularized CF trackers, SRDCF, CCOT and ECO, which validates the feasibility and generality of SSR. Extensive experiments on OTB2013 [26], OTB-2015 [27], VOT-2016 [28], TC-128 [29],
+and LaSOT [30] verify the superiority of our method over state-of-the-art competitors.
+
+</p>
+<h2>Results on OTB-2013</h2>
+</br>
+	</br>
+	<p align="center"><img src="./imgs/dsiamfigotb2013.png" alt="" width="600"/></p></br>
+	<p align="center">
+	Success and precision plots of OPE (one pass evaluation) on OTB-2013. The numbers in the legend indicate the areaunder-curve (AUC) score for success plots and the representative precisions at 20 pixels for precision plots, respectively.
+</p>
+</br>
+
+</p>
+<h2>Demo</h2>
+</br>
+	</br>
+	<div align="center">
+	<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/G8RbuKI_784?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>-->
+	<video style="width:640;height:auto" muted loop controls>
+		<source src="imgs/Dancer.mov" type="video/mp4">
+	</video>
+	</div>
+	</br>
+	<p align="center">
+	Challenge video in which target is surrounded by clustered background and similar objects.
+</p>
+</br>
+
+<h2>Source Code</h2>
+
+Source Code (Matlab) and Models:
+[ <a href="https://github.com/tsingqguo/SSR"/>Code</a>][ <a href="./files/OTB-100.zip"/>OTB-100 results</a>][<a />Model Coming Soon</a>]
+
+
+<h2>Citation - BibTeX</h2>
+<p align="justify">
+	<b>Selective Spatial Regularization by Reinforcement Learned Decision Making for Object Tracking</b><br/>
+	Qing Guo, Ruize Han, Wei Feng, Zhihao Chen, Liang Wan. Selective Spatial Regularization by Reinforcement Learned Decision Making for Object Tracking. <br/>
+	<i> In IEEE TIP, 2019.(CCF-A)</i>.<br/>
+	[ <a href="./files/SSR.pdf">PDF</a> ]
+	[ <a href="./files/SSR.txt">BibTeX</a> ]
+</p>
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=8914677;
+var sc_invisible=1;
+var sc_security="f1edf88a";
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="web analytics"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="http://c.statcounter.com/8914677/0/f1edf88a/1/"
+alt="web analytics"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+</body>
+</html>
